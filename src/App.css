@@ -1,0 +1,32 @@
+.Layout {
+  min-width: 800px;
+  max-width: 1200px;
+  background-color: green;
+}
+
+.HeaderWrap {
+  background-color: aqua;
+}
+
+
+.TodoListWrap {
+  background-color: aliceblue;
+  display: flex;
+}
+
+.TodoCard {
+  border: 2px blue solid;
+  border-radius: 5px;
+  width: 200px;
+  height: 140px;
+  margin: 10px;
+}
+
+.TodoCard div {
+  margin: 10px 0 0 20px;
+}
+
+.TodoCard button {
+  margin: 20px 10px 0 0;
+  width: 70px;
+}
