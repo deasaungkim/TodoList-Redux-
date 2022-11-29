@@ -1,24 +1,85 @@
+* {
+  font-size: 20px;
+}
+
 .Layout {
   min-width: 800px;
   max-width: 1200px;
-  background-color: green;
+  margin: 40px auto;
+}
+
+.Layout h1 {
+  font-size: 40px;
 }
 
 .HeaderWrap {
-  background-color: aqua;
+  background-color: gainsboro;
+  border-radius: 12px;
+  height: 80px;
+  line-height: 40px;
+}
+
+.HeaderWrap label,
+input {
+  height: 30px;
+  width: 170px;
+  line-height: 80px;
+
+  /* background-color: blue; */
+}
+
+.HeaderWrap label {
+  margin: 0 10px 0 36px;
+}
+
+.HeaderWrap input {
+  margin-right: 20px;
+  border-radius: 12px;
+  padding-left: 20px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 3px #000 solid;
+}
+
+
+.HeaderWrap button {
+  height: 40px;
+  width: 150px;
+  margin-left: 30px;
+  background-color: blue;
+  color: aliceblue;
+
+  border-radius: 12px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 3px #000 solid;
+}
+
+.A {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 30px;
+  margin: 0 auto;
 }
 
 
 .TodoListWrap {
-  background-color: aliceblue;
+  /* background-color: aliceblue; */
   display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+
 }
 
 .TodoCard {
-  border: 2px blue solid;
-  border-radius: 5px;
-  width: 200px;
-  height: 140px;
+  border: 6px blue solid;
+  background-color: aliceblue;
+  border-radius: 12px;
+  width: 240px;
+  height: 160px;
   margin: 10px;
 }
 
@@ -26,7 +87,13 @@
   margin: 10px 0 0 20px;
 }
 
+.TodoCard>div:nth-of-type(3) {
+  margin: 0;
+}
+
 .TodoCard button {
-  margin: 20px 10px 0 0;
-  width: 70px;
+  margin: 20px 6px 0 12px;
+  width: 100px;
+  height: 38px;
+  border-radius: 12px;
 }
