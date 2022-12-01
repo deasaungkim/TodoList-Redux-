@@ -1,6 +1,6 @@
 // import App from './App'
 function TodoList(props) {
-
+  // onst { } user: L
   // const done = [
   //   <form>
   //     <button>삭제하기</button>
@@ -32,13 +32,12 @@ function TodoList(props) {
           <div>{props.user.content}</div>
           <div>
             <CustomButton onClick={() => { props.deleteUserHandler(props.user.id) }} color="red">삭제하기</CustomButton>
-
             <CustomButton onClick={() => { props.editUserHandler(props.user.id) }} color="green">{props.user.isDone ? "취소" : "완료"}</CustomButton>
           </div>
         </div>
         // : <p>유저가 없습니다</p>
       }
-    </div>
+    </div >
   )
 }
 

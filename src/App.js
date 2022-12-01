@@ -4,8 +4,14 @@ import './App.css';
 import TodoList from './TodoList';
 import { useState } from 'react';
 
-
 function App() {
+
+  // const [input, setInput] = useState({ title: "", content: "" })
+  // const handleInput = (e) => {
+  //   // const {target: {value, name}} = e
+  //   const { value, name } = e.target
+  //   setInput({ ...input, [name]: value }) // dynamic object property (key)
+  // }
 
   const [title, setTitle] = useState('');
   //제목의 input값을 지정
@@ -21,6 +27,7 @@ function App() {
   const [users, setUsers] = useState([])
   //Todo의 제목과 내용을들을 담을 배열
   const addUserHandler = () => {
+    if (!title || !content) return;
     const newUser = {
       id: users.length + 1,
       title,
@@ -56,7 +63,7 @@ function App() {
     event.preventDefault()
     //form 태그의 submit후의 일을 실행하지x
     if (title === '') { return; }
-    if (content === '') { return; }
+    else if (content === '') { return; }
     //submit이 된후 값이''으로 초기화되므로 setter도 ''로 초기화한다
     setTitle(''); setContent('');
   }
@@ -67,9 +74,9 @@ function App() {
       <form onSubmit={onSubmit} className='HeaderWrap'>
 
         <label>제목</label>
-        <input onChange={targetHandler} value={title} />
+        <input onChange={targetHandler} value={title} name="title" />
         <label>내용</label>
-        <input onChange={targetHandlerContent} value={content} />
+        <input onChange={targetHandlerContent} value={content} name="content" />
         <button onClick={addUserHandler}>추가하기</button>
       </form>
 

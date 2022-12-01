@@ -75,8 +75,8 @@ input {
 }
 
 .TodoCard {
-  border: 6px blue solid;
-  background-color: aliceblue;
+  border: 6px rgba(0, 0, 0, 0.45) solid;
+  background-color: gainsboro;
   border-radius: 12px;
   width: 240px;
   height: 160px;
@@ -92,7 +92,7 @@ input {
 }
 
 .TodoCard button {
-  margin: 20px 6px 0 12px;
+  margin: 26px 6px 0 12px;
   width: 100px;
   height: 38px;
   border-radius: 12px;
