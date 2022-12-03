@@ -5,13 +5,13 @@ function App() {
   const handler = (event) => {
     setContent(event.target.value)
   }
-  const [inputo, setInput] = useState([{ text: "리액트를 배워봅시다", id: 1 }])
+  const [inputo, setInput] = useState([{ content: "리액트를 배워봅시다", id: 1 }])
 
   const onSubmit = (event) => {
     event.preventDefault()
   }
   const put = () => {
-    const newInputo = { text: content, id: inputo.length + 1 }
+    const newInputo = { content: content, id: inputo.length + 1 }
     setInput([...inputo, newInputo])
   }
   console.log(inputo)
@@ -27,7 +27,7 @@ function App() {
       </form>
       <h1>Todo List</h1>
       <div>
-        {inputo.map((user) => { return (<div><div>{user.content}</div></div>) })}
+        {inputo.map((user) => { return (<div key={user.id}>{user.content}</div>) })}
       </div>
 
     </div >)
