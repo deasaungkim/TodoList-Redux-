@@ -2,11 +2,11 @@ import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from "react-redux"
 import { counter } from "../redux/modules/counter"
-
+import { addInput } from "../redux/modules/counter"
 
 function Form() {
 
-  const dispatch = useDispatch();
+  const dispatch = addInput();
 
   // const [todos, setTodos] = useState([{id:0, title: '', content: '', isDone: false }])
   // console.log("todos:", todos)
