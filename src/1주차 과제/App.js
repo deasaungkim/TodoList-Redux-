@@ -12,7 +12,27 @@ function App() {
   //   const { value, name } = e.target
   //   setInput({ ...input, [name]: value }) // dynamic object property (key)
   // }
+  <div>
+    <body>
+      <main>main영역
+        <div>
+          <p>p영역
+            <span>span영역</span>
+          </p>
+        </div>
+      </main>
+    </body>
+    <script>
+      const $body = document.querySelector('body')
+      const $mian = document.querySelector('main')
+      const $div = document.querySelector('div')
+      const $p = document.querySelector('p')
+      const $span = document.querySelector('span')
 
+
+
+    </script>
+  </div>
   const [title, setTitle] = useState('');
   //제목의 input값을 지정
   function targetHandler(event) {

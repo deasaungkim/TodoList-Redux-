@@ -1,6 +1,9 @@
+import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from "react-redux"
-import { ADDINPUT } from '../redux/config/redux1/modules/counter'
+import { counter } from "../redux/modules/counter"
+
+
 function Form() {
 
   const dispatch = useDispatch();
@@ -21,10 +24,10 @@ function Form() {
     event.preventDefault()
     if (input.title === '' || input.content === '') return;
 
-    dispatch({ type: "ADDINPUT", payload: { ...input, id } });
+    // dispatch({ type: "ADDINPUT", payload: { ...input, id } });
 
-    setTodos([...todos, { ...input, id: todos.length + 1 }])
-    setInput(initialState)
+    // setTodos([...todos, { ...input, id: todos.length + 1 }])
+    // setInput(initialState)
   }
 
 
