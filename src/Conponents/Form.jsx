@@ -5,15 +5,14 @@ import { counter } from "../redux/modules/counter"
 import { addInput } from "../redux/modules/counter"
 
 function Form() {
-
-  const dispatch = addInput();
+  const dispatch = useDispatch();
 
   // const [todos, setTodos] = useState([{id:0, title: '', content: '', isDone: false }])
   // console.log("todos:", todos)
 
   // const initialState = { id: 0, title: "", content: "", isDone: false }
 
-  const [input, setInput] = useState([{ id: 0, title: '', content: '', isDone: false }])
+  const [input, setInput] = useState({ title: '', content: '' })
 
   const inputHandler = (e) => {
     const { target: { value, name } } = e
@@ -24,10 +23,9 @@ function Form() {
     event.preventDefault()
     if (input.title === '' || input.content === '') return;
 
-    // dispatch({ type: "ADDINPUT", payload: { ...input, id } });
+    dispatch(addInput({ ...input }));
 
-    // setTodos([...todos, { ...input, id: todos.length + 1 }])
-    // setInput(initialState)
+    // setInput({ id: 0, title: '', content: '', isDone: false })
   }
 
 
