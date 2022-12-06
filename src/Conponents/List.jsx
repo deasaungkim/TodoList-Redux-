@@ -1,37 +1,22 @@
 import React from 'react';
-import Todo from './Todo'
 import { useSelector, useDispatch } from "react-redux"
-
+import { deleteBtn, aditBtn } from "../redux/modules/counter"
+import "../test.css"
 
 
 function List() {
   const dispatch = useDispatch()
   const todos = useSelector((state) => state.counter.input)
-  // const deleteHandler = (id) => {
-  //   const newUserList = todos.filter((items) => items.id !== id);
-  //   setTodos(newUserList)
-  // }
-  // const editHandler = (id) => {
-  //   const newUserList = todos.map((items) => {
-  //     if (items.id === id) {
-  //       return {
-  //         ...items,
-  //         isDone: !items.isDone,
-  //       };
-  //     } else {
-  //       return { ...items };
-  //     }
-  //   });
-  //   setTodos(newUserList);
-  // };
-  // data?.map((item, idx) =>return {}) // optional chaining
+  // console.log(todos)
+
+  const deleteTodos = (id) => { dispatch(deleteBtn(id)) }
+  const aditTodos = (id) => { dispatch(aditBtn(id)) }
 
   return (
     <div>
-      <h2>Working</h2>
+      <h2 className='text-flicker-out-glow'>Working</h2>
       <div>
         {todos.map((user) => {
-
           if (!user.isDone) {
             return (
               <div>
@@ -39,8 +24,8 @@ function List() {
                 <div>{user.title}</div>
                 <div>{user.content}</div>
                 <div>
-                  <button>삭제하기</button>
-                  <button>취소</button>
+                  <button className='' onClick={() => deleteTodos(user.id)}>삭제하기</button>
+                  <button onClick={() => aditTodos(user.id)}>{user.isDone ? "취소" : "완료"}</button>
                 </div>
               </div>
             )
@@ -50,8 +35,28 @@ function List() {
           }
         })}
       </div>
-      <h2>Done</h2>
-      { }
+      <h2 className='tracking-in-contract-bck-bottom '>Done</h2>
+      <div>
+        {todos.map((user) => {
+          console.log("USER::", user)
+          if (user.isDone) {
+            return (
+              <div>
+                <div>상세보기</div>
+                <div>{user.title}</div>
+                <div>{user.content}</div>
+                <div>
+                  <button onClick={() => deleteTodos(user.id)}>삭제하기</button>
+                  <button onClick={() => aditTodos(user.id)}>{user.isDone ? "취소" : "완료"}</button>
+                </div>
+              </div>
+            )
+          }
+          else {
+            return null
+          }
+        })}
+      </div>
     </div>
 
   )
