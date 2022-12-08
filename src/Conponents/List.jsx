@@ -1,64 +1,66 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux"
 import { deleteBtn, aditBtn } from "../redux/modules/counter"
-import "../test.css"
-
-
+import { Link } from "react-router-dom"
+import { Wrapper, TodoCard, Working } from "../style/Working"
+import { Done } from "../style/Done"
+import "../style/TodoElement.css"
 function List() {
   const dispatch = useDispatch()
   const todos = useSelector((state) => state.counter.input)
-  // console.log(todos)
 
+  // console.log("adit::", aditBtn)
   const deleteTodos = (id) => { dispatch(deleteBtn(id)) }
   const aditTodos = (id) => { dispatch(aditBtn(id)) }
+  // const effect = useEffect()
 
   return (
     <div>
-      <h2 className='text-flicker-out-glow'>Working</h2>
-      <div>
+      <Working>Working</Working>
+      <TodoCard>
         {todos.map((user) => {
+
           if (!user.isDone) {
             return (
-              <div>
-                <div>상세보기</div>
-                <div>{user.title}</div>
-                <div>{user.content}</div>
-                <div>
-                  <button className='' onClick={() => deleteTodos(user.id)}>삭제하기</button>
-                  <button onClick={() => aditTodos(user.id)}>{user.isDone ? "취소" : "완료"}</button>
-                </div>
-              </div>
-            )
-          }
-          else {
-            return null
-          }
-        })}
-      </div>
-      <h2 className='tracking-in-contract-bck-bottom '>Done</h2>
-      <div>
-        {todos.map((user) => {
-          console.log("USER::", user)
-          if (user.isDone) {
-            return (
-              <div>
-                <div>상세보기</div>
+              <Wrapper className='TodoElement' id='wrapper'>
+                <Link to={`/about/${user.id}`} key={user.id} >상세보기</Link>
                 <div>{user.title}</div>
                 <div>{user.content}</div>
                 <div>
                   <button onClick={() => deleteTodos(user.id)}>삭제하기</button>
                   <button onClick={() => aditTodos(user.id)}>{user.isDone ? "취소" : "완료"}</button>
                 </div>
-              </div>
+              </Wrapper>
             )
           }
           else {
             return null
           }
         })}
-      </div>
-    </div>
+      </TodoCard>
 
+      <Done>Done</Done>
+      <TodoCard>
+        {todos.map((user) => {
+          if (user.isDone) {
+            return (
+              <Wrapper className='TodoElement ' id='wrapper'>
+                <Link to={"about"} key={user.id} >상세보기</Link>
+                <div>{user.title}</div>
+                <div>{user.content}</div>
+                <div>
+                  <button onClick={() => deleteTodos(user.id)}>삭제하기</button>
+                  <button onClick={() => aditTodos(user.id)}>{user.isDone ? "취소" : "완료"}</button>
+                </div>
+              </Wrapper>
+            )
+          }
+          else {
+            return null
+          }
+        })}
+      </TodoCard>
+    </div>
   )
 }
 export default List;

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useDispatch } from "react-redux"
 import { counter } from "../redux/modules/counter"
 import { addInput } from "../redux/modules/counter"
-import "../test.css"
+import "../style/header.css"
 
 
 function Form() {
@@ -15,8 +15,8 @@ function Form() {
   // const initialState = { id: 0, title: "", content: "", isDone: false }
 
   // const [input, setInput] = useState({ id: 1, title: '', content: '', isDone: false })
-  const [input, setInput] = useState([])
-
+  const [input, setInput] = useState({ content: '', title: '' })
+  console.log("input::", input)
   const inputHandler = (e) => {
     const { target: { value, name } } = e
     setInput({ ...input, [name]: value })
@@ -27,23 +27,22 @@ function Form() {
     event.preventDefault()
 
     if (!input.title || !input.content) return;
-    // console.log(input.length)
-    // setNum(num + 1)
+
     dispatch(addInput({ title: input.title, content: input.content, isDone: false }));
 
 
-    setInput({ title: '', content: '' })
+    // setInput({ title: '', content: '' })
   }
 
 
   return (
     <div>
-      <form onSubmit={onSubmitHandler}>
-        <label >제목</label>
-        <input value={input.title} name="title" onChange={inputHandler} />
-        <label>내용</label>
-        <input value={input.content} name="content" onChange={inputHandler} />
-        <button>추가하기</button>
+      <form onSubmit={onSubmitHandler} className="HeaderWrap">
+        <label ></label>
+        <input value={input.title} name="title" onChange={inputHandler} placeholder="제목을  입력하세요" />
+        <label></label>
+        <input value={input.content} name="content" onChange={inputHandler} placeholder="내용을  입력하세요" />
+        <button className='pulsate-bck'>추가하기</button>
       </form>
     </div>
 

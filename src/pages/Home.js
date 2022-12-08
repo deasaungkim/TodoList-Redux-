@@ -2,14 +2,17 @@ import React from "react";
 import Form from "../Conponents/Form";
 import List from "../Conponents/List";
 import "../test.css"
-
+import { Layout, Title, Background } from "../style/Title"
 const Home = () => {
 
-  return (<div>
-    <h1 className="text-pop-up-top">My Todo List</h1>
-    <Form />
-    <List />
-  </div>)
+  return (<Background>
+    <Layout>
+      <Title  >My Todo List</Title>
+      <Form />
+      <List />
+    </Layout>
+  </Background>)
 }
 
 export default Home
+

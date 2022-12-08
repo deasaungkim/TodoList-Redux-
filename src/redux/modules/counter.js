@@ -25,7 +25,9 @@ export const deleteBtn = (payload) => {
 }
 
 export const aditBtn = (payload) => {
+  // console.log("pay::", payload)
   return {
+
     type: ADITBTN,
     payload,
 
@@ -49,26 +51,36 @@ const counter = (state = initialState, action) => {
   switch (action.type) {
     case ADD_INPUT:
       id++
-      return { input: [...state.input, action.payload] }
+      return { ...state, input: [...state.input, action.payload] }
 
     case DELETEBTN:
       // console.log("pay::", state.input)
       const newTodoDelete = state.input.filter((items) => items.id !== action.payload)
+      // const docu = document.getElementById("wrapper")
+      // console.log("docu:", docu)
+      // docu.className = "dispear"
+      // docu.classList.add('dispear')
+      // docu.className += 'dispear'
+
+      // console.log("e", Element)
+      // Element.classname = "slide - out - fwd - tr"
       return { input: newTodoDelete }
 
     case ADITBTN:
-      // console.log("pay::", state.input.isDone)
+      // console.log("pay::", action.payload)
       const newTodoAdit = state.input.map((items) => {
         if (items.id === action.payload) {
+
           return {
             ...items,
             isDone: !items.isDone,
+
           };
         } else {
           return { ...items };
         }
       });
-      return { newTodoAdit }
+      return { input: newTodoAdit }
     default:
       return state;
   }
