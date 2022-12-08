@@ -31,7 +31,7 @@ function Form() {
     dispatch(addInput({ title: input.title, content: input.content, isDone: false }));
 
 
-    // setInput({ title: '', content: '' })
+    setInput({ title: '', content: '' })
   }
 
 
